@@ -1,19 +1,36 @@
-const myHeaders = new Headers();
-myHeaders.append(
-  'Authorization',
-  `Client-ID ${process.env.REACT_APP_CLIENT_ID}`
-);
+//
+class Imgur {
+  constructor(key) {
+    this.key = key;
+    this.myHeaders = new Headers();
+    this.myHeaders.append('Authorization', `Client-ID ${this.key}`);
 
-const requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow',
-};
+    this.requestOptions = {
+      method: 'GET',
+      headers: this.myHeaders,
+      redirect: 'follow',
+    };
+  }
 
-export const result = fetch(
-  'https://api.imgur.com/3/gallery/search/?q=cat',
-  requestOptions
-)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log('error', error));
+  async search(query) {
+    return fetch(
+      `https://api.imgur.com/3/gallery/search/?q=${query}`,
+      this.requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => result.data);
+    // .catch((error) => console.log('error', error));
+  }
+
+  async mostPopular() {
+    return fetch(
+      `https://api.imgur.com/3/gallery/search/viral/`,
+      this.requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => result.data);
+    // .catch((error) => console.log('error', error));
+  }
+}
+
+export default Imgur;
