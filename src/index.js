@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './app.jsx';
+import App from './App.jsx';
 
+// data connect to Youtube
 ReactDOM.render(
   <React.StrictMode>
     <App />

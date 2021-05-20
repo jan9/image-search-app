@@ -1,0 +1,12 @@
+.image_item {
+  cursor: pointer;
+  /* border: 1px solid lightgray; */
+  padding: 4px;
+  border-radius: 8px;
+  transition: transform 250ms ease-in;
+  /* add box shardow */
+}
+
+.image_item:hover {
+  transform: scale(1.02);
+}
