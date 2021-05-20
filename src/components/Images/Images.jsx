@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Images.module.css';
 
 const ImageItem = ({ image }) => {
-  console.log('imageitem: ', image);
+  // console.log('imageitem: ', image);
   return (
     <li>
       {' '}

@@ -3,7 +3,7 @@ import styles from './Gallery.module.css';
 import ImageItem from '../Images/Images';
 
 const Gallery = ({ galleries }) => {
-  console.log('galleries 5: ', galleries);
+  // console.log('galleries 5: ', galleries);
   // need to grab the "images" property only from the galleries array of objs
   const images = galleries
     .filter((item) => {
