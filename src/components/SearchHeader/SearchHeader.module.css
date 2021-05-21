@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,10 +36,9 @@
 .input__icon {
   width: 100%;
   color: gray;
-  /* color: #f5f8fa; */
 }
 
 .input__icon:hover {
   cursor: pointer;
   color: black;
-}
+} */
