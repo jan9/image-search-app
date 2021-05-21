@@ -1,6 +1,8 @@
 # Frontend Coding Challenge
 
-May 21, 2021
+### Author: Juhye An
+
+### Date: May 21, 2021
 
 ## Project Scope
 
@@ -22,19 +24,17 @@ Here's the main logic of my application:
 
 - Written in JavaScript (ES6)
 - React (via [Create React App](https://github.com/facebook/create-react-app)) and React Hooks
-- Axios
-- FontAwesome
+- Axios as a HTTP client
+- FontAwesome for icons
 - Material-UI
 - Imgur Gallery Search API https://apidocs.imgur.com/#3c981acf-47aa-488f-b068-269f65aee3ce
 
 ## How to setup
 
-During development, ngrok was used to solve the CORS issue
-
 In the project directory, run the following commands to setup:
 
-1. create a .env in the root directory and add Client-Id for Imgur API call.
-   Set 'REACT_APP_CLIENT_ID' equal to the client-id.
+1. [IMPORTANT!]create a .env in the root directory and add the client-id needed to authorization by Imgur.
+   i.e. Set 'REACT_APP_CLIENT_ID' equal to the client-id.
 1. cd image-search-app
 1. yarn install
 1. yarn start
@@ -47,7 +47,7 @@ In the project directory, run the following commands to setup:
 1. I chose Axios as my HTTP client instead of fetch(). Fetch() can certainly do things that Axios does, but I really like that Axios is more compatible with browsers and requires less code.
 1. Query parameters used in the API call varies depending on the input user provides. This was done to return most accurate data as possible so that the user can find the "perfect image".
 1. Thank you Rahul for answering 'yes' to the question I had about not including gif files as images. However, I ended up using .gif files because <img> tag is able to use the .gif file as a source.
-1. I used lazy loading to render the images so that the learner doesn't have to wait until all of the images have been loaded.
+1. I used lazy loading to render the images as needed so that the learner doesn't have to wait until all of the images have been loaded.
 1. I added error-handling in case there is a network issue with the API call.
 
 ## Improvements if more time permitted

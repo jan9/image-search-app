@@ -9,6 +9,8 @@ function App({ imgur }) {
   const [loading, setLoading] = useState(false);
   const [galleries, setGalleries] = useState([]);
   const [selectedImg, setSelectedImg] = useState(null);
+
+  // error-handling
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -19,10 +21,7 @@ function App({ imgur }) {
       </div>
     ) : (
       <div className={styles.no_data}>
-        <p className={styles.msg}>
-          No results found. <br />
-          Please type a keyword to search 🔎
-        </p>
+        <p className={styles.msg}>Please type a keyword to search 🔎</p>
       </div>
     );
   };
