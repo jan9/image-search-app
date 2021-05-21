@@ -1,35 +1,31 @@
-//
+import axios from 'axios';
+
 class Imgur {
   constructor(key) {
-    this.key = key;
-    this.myHeaders = new Headers();
-    this.myHeaders.append('Authorization', `Client-ID ${this.key}`);
-
-    this.requestOptions = {
-      method: 'GET',
-      headers: this.myHeaders,
-      redirect: 'follow',
-    };
+    this.imgur = axios.create({
+      baseURL: 'https://api.imgur.com/3/gallery/search/time/all',
+      headers: { Authorization: `Client-ID ${key}` },
+    });
   }
 
   async search(query) {
-    return fetch(
-      `https://api.imgur.com/3/gallery/search/?q=${query}`,
-      this.requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => result.data);
-    // .catch((error) => console.log('error', error));
-  }
+    // make query input into an array and form query strings
+    let queryType = '';
+    let joinedQuery = query.split(' ');
+    if (joinedQuery.length < 2) {
+      queryType = 'q_exactly';
+    } else if (joinedQuery.includes('and')) {
+      queryType = 'q_all';
+    } else {
+      queryType = 'q_any';
+    }
+    joinedQuery = joinedQuery
+      .filter((item) => item !== 'and' && item !== 'or')
+      .join(',');
 
-  async mostPopular() {
-    return fetch(
-      `https://api.imgur.com/3/gallery/search/viral/`,
-      this.requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => result.data);
-    // .catch((error) => console.log('error', error));
+    // api call to imgur
+    const response = await this.imgur.get(`/?${queryType}=${joinedQuery}`);
+    return response.data.data;
   }
 }
 

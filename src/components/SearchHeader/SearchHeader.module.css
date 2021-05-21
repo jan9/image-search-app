@@ -1,23 +1,45 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 2rem;
-  padding: 0.8em 0.5em;
-  background: black;
-  color: white;
-  font-size: 1em;
+  padding: 0.5em;
 }
 
 .title {
   margin-right: 1em;
+  min-width: 33%;
 }
 
 .input {
-  flex-basis: 60%;
-  font-size: 1.2rem;
-  outline: 0;
+  padding: 8px 16px;
+  width: 80%;
+  border-radius: 16px;
+  background-color: #f5f8fa;
+  border: 1px solid #f5f8fa;
 }
 
-.button {
-  background-color: darkgrey;
+.input:hover,
+.input:focus-within {
+  border: 1px solid lightsteelblue;
+}
+
+.input__field {
+  width: 56vw;
+  font-size: 1rem;
+  outline: 0;
+  margin-right: 16px;
+  border: 1px solid transparent;
+  background-color: #f5f8fa;
+}
+
+.input__icon {
+  width: 100%;
+  color: gray;
+  /* color: #f5f8fa; */
+}
+
+.input__icon:hover {
+  cursor: pointer;
+  color: black;
 }

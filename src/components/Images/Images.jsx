@@ -1,19 +1,25 @@
 import React from 'react';
 import styles from './Images.module.css';
 
-const ImageItem = ({ image }) => {
-  // console.log('imageitem: ', image);
+const ImageItem = ({ image, selectedImg, setSelectedImg }) => {
   return (
-    <li>
-      {' '}
-      <img
-        className={styles.image_item}
-        src={image.link}
-        alt={image.id}
-        loading='lazy'
-        width='300px'
-      />
-    </li>
+    image &&
+    image.type !== 'video/mp4' && (
+      <div
+        className={styles.img_wrap}
+        onClick={() => {
+          setSelectedImg(image.link);
+        }}
+      >
+        {' '}
+        <img
+          className={styles.image_item}
+          src={image.link}
+          alt={image.id}
+          loading='lazy'
+        />
+      </div>
+    )
   );
 };
 

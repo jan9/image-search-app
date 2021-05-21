@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import styles from './SearchHeader.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const SearchHeader = ({ onSearch }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
-    // console.log(value);
     onSearch(value);
   };
 
@@ -22,16 +23,19 @@ const SearchHeader = ({ onSearch }) => {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>Image Search App</h1>
-      <input
-        ref={inputRef}
-        className={styles.input}
-        type='search'
-        placeholder='Search'
-        onKeyPress={handleKeyPress}
-      />
-      <button className={styles.button} type='submit' onClick={handleClick}>
-        🔍
-      </button>
+      <div className={styles.input}>
+        <input
+          ref={inputRef}
+          autoFocus
+          className={styles.input__field}
+          type='search'
+          placeholder='Type keyword here'
+          onKeyPress={handleKeyPress}
+        />
+        <span className={styles.input__icon} onClick={handleClick}>
+          <FontAwesomeIcon icon={faSearch} />
+        </span>
+      </div>
     </header>
   );
 };
