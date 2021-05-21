@@ -6,7 +6,7 @@
 
 .title {
   flex: 1 1 33%;
-  font-family: 'Pattaya';
+  font-family: 'Pattaya', Roboto;
   min-width: 33%;
 }
 
@@ -19,6 +19,7 @@
   border-radius: 16px;
   background-color: #f5f8fa;
   border: 1px solid #f5f8fa;
+  font-family: 'Pattaya', Roboto;
 }
 
 .input:hover,
