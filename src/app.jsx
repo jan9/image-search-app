@@ -15,7 +15,7 @@ function App({ imgur }) {
   const NoResultFound = ({ error, errorMsg }) => {
     return error ? (
       <div className={styles.no_data}>
-        <p className={styles.msg}>Error: {errorMsg}</p>
+        <p className={styles.msg}>ERROR: {errorMsg}</p>
       </div>
     ) : (
       <div className={styles.no_data}>
@@ -49,7 +49,6 @@ function App({ imgur }) {
       .catch((e) => {
         setError(true);
         setErrorMsg(e.message);
-        // console.log(e);
       });
   };
 

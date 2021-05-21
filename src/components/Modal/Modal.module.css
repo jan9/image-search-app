@@ -12,14 +12,14 @@
 }
 
 .modal__img {
-  display: block;
+  display: relative;
   max-width: 80%;
   max-height: 80%;
-  /* margin: auto; */
+  margin: auto;
 }
 
 .modal__close {
-  padding: 16px;
+  display: absolute;
   color: white;
   background-color: transparent;
   border: transparent;
