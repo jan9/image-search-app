@@ -8,23 +8,31 @@ class Imgur {
     });
   }
 
-  async search(query) {
-    // make query input into an array and form query strings
+  queryStringGenerator = (originalQuery) => {
     let queryType = '';
-    let joinedQuery = query.split(' ');
-    if (joinedQuery.length < 2) {
+    let queryStr = originalQuery.split(' ');
+    if (queryStr.length < 2) {
       queryType = 'q_exactly';
-    } else if (joinedQuery.includes('and')) {
+    } else if (queryStr.includes('and')) {
       queryType = 'q_all';
     } else {
       queryType = 'q_any';
     }
-    joinedQuery = joinedQuery
+    queryStr = queryStr
       .filter((item) => item !== 'and' && item !== 'or')
       .join(',');
 
+    return { queryStr, queryType };
+  };
+
+  async search(query) {
+    // make query input into an array and form query strings
+    const newQuery = this.queryStringGenerator(query);
+
     // api call to imgur
-    const response = await this.imgur.get(`/?${queryType}=${joinedQuery}`);
+    const response = await this.imgur.get(
+      `/?${newQuery.queryType}=${newQuery.queryStr}`
+    );
     return response.data.data;
   }
 }
