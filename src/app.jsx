@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './App.module.css';
-import ImageList from './components/Gallery/Gallery';
+import ImageList from './components/ImageList/ImageList';
 import SearchHeader from './components/SearchHeader/SearchHeader';
 import Modal from './components/Modal/Modal';
 import CircularProgress from '@material-ui/core/CircularProgress';

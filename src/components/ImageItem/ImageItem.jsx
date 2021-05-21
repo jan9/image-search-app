@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Images.module.css';
+import styles from './ImageItem.module.css';
 
 const ImageItem = ({ image, selectedImg, setSelectedImg }) => {
   return (

@@ -1,10 +1,9 @@
 import React from 'react';
-import styles from './Gallery.module.css';
-import ImageItem from '../Images/Images';
+import styles from './ImageList.module.css';
+import ImageItem from '../ImageItem/ImageItem';
 
-const Gallery = ({ galleries, selectedImg, setSelectedImg }) => {
-  // need to grab the "images" property only from the galleries array of objs
-
+// need to grab the "images" property from the array of gallery objs
+const ImageList = ({ galleries, selectedImg, setSelectedImg }) => {
   const images =
     galleries &&
     galleries
@@ -31,4 +30,4 @@ const Gallery = ({ galleries, selectedImg, setSelectedImg }) => {
   );
 };
 
-export default Gallery;
+export default ImageList;
