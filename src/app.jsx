@@ -4,7 +4,6 @@ import ImageList from './components/Gallery/Gallery';
 import SearchHeader from './components/SearchHeader/SearchHeader';
 import Modal from './components/Modal/Modal';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Grid from '@material-ui/core/Grid';
 
 function App({ imgur }) {
   const [loading, setLoading] = useState(false);
@@ -56,7 +55,9 @@ function App({ imgur }) {
 
   return (
     <>
+      {/* header */}
       <SearchHeader onSearch={search} />
+      {/* section */}
       <section className={styles.content}>
         {galleries && galleries.length === 0 ? (
           <NoResultFound error={error} errorMsg={errorMsg} />

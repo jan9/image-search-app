@@ -1,4 +1,4 @@
-/* .img_wrap {
+.img_wrap {
   overflow: hidden;
   height: 0;
   padding: 50% 0;
@@ -22,4 +22,4 @@
 .image_item:hover {
   transform: scale(1.02);
   opacity: 0.8;
-} */
+}
